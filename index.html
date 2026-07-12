@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фестак — премиальный африканский массаж и SPA в Москве</title>
+  <meta name="description" content="Премиальный африканский массаж и SPA в Москве: массаж, SPA-программы, парные ритуалы и подарочные сертификаты. Москва, Дмитровское шоссе 81, Гранд Фитнес, Фестак массаж.">
+  <style>
+    :root {
+      --bg: #120d0a;
+      --bg-soft: #1c1410;
+      --panel: #241a14;
+      --panel-2: #2e2118;
+      --text: #f6efe5;
+      --muted: #cabba6;
+      --soft: #8f7c66;
+      --gold: #d09a4a;
+      --gold-2: #b87b32;
+      --line: rgba(208, 154, 74, .28);
+      --line-soft: rgba(246, 239, 229, .12);
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Manrope, Inter, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(208, 154, 74, .12), transparent 26%),
+        radial-gradient(circle at 8% 42%, rgba(120, 54, 25, .18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.025), transparent 34%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    section { padding: 112px clamp(20px, 5vw, 72px); }
+
+    .container { max-width: 1240px; margin: 0 auto; }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    h1 { font-size: clamp(38px, 6vw, 74px); line-height: 1.03; max-width: 760px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.12; }
+    h3 { font-size: 24px; line-height: 1.2; }
+    p { color: var(--muted); line-height: 1.72; font-size: 16px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 22px;
+      border-radius: 3px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #160f0a;
+    }
+
+    .btn:hover { transform: translateY(-1px); border-color: rgba(208,154,74,.65); }
+    .btn.primary:hover { background: #dfaa5a; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(20px, 5vw, 72px);
+      border-bottom: 1px solid var(--line-soft);
+      background: rgba(18, 13, 10, .88);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand { display: flex; flex-direction: column; line-height: 1; }
+    .brand strong { font-family: Georgia, serif; font-size: 25px; }
+    .brand span { color: var(--gold); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; }
+    nav { display: flex; align-items: center; gap: 26px; color: #e1d5c5; font-size: 14px; }
+    .header-actions { display: flex; align-items: center; gap: 14px; }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 86px;
+      padding-bottom: 86px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 6vw;
+      top: 10%;
+      width: min(42vw, 520px);
+      height: 76%;
+      background: url("assets/festak-mask.jpg") center / contain no-repeat;
+      opacity: .16;
+      filter: sepia(.2) contrast(1.1);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .chip {
+      border: 1px solid var(--line);
+      color: var(--gold);
+      padding: 7px 12px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    .hero p { max-width: 560px; font-size: 18px; margin: 26px 0 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
+      gap: clamp(44px, 7vw, 92px);
+      align-items: center;
+    }
+
+    .image-card {
+      border: 1px solid var(--line);
+      background: rgba(36, 26, 20, .62);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 26px 80px rgba(0,0,0,.28);
+    }
+
+    .mask-card img { height: 480px; width: 100%; object-fit: contain; display: block; }
+    .caption { margin-top: 12px; color: var(--soft); font-size: 11px; line-height: 1.5; text-align: center; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 24px;
+      margin-top: 34px;
+    }
+    .feature {
+      border-top: 1px solid var(--line-soft);
+      padding-top: 14px;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card small { color: var(--gold); text-transform: uppercase; letter-spacing: .1em; }
+    .price { color: var(--text); font-weight: 800; margin-top: 14px; }
+    .muted { color: var(--muted); }
+
+    .catalog { display: grid; gap: 12px; }
+    .accordion {
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .accordion button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: none;
+      color: var(--text);
+      border: 0;
+      padding: 22px 24px;
+      font: inherit;
+      cursor: pointer;
+      text-align: left;
+    }
+    .accordion button span { color: var(--gold); font-size: 22px; }
+    .accordion-content { display: none; padding: 0 24px 24px; }
+    .accordion.open .accordion-content { display: block; }
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 90px 110px 100px;
+      gap: 16px;
+      align-items: center;
+      padding: 15px 0;
+      border-top: 1px solid var(--line-soft);
+      color: var(--muted);
+    }
+    .service-row strong { color: var(--text); font-weight: 600; }
+    .service-row .btn { min-height: 38px; padding: 9px 12px; font-size: 13px; }
+
+    .spa-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .certificate.image-card { padding: 0; overflow: hidden; background: #0d0907; }
+    .certificate img { width: 100%; height: 330px; object-fit: contain; background: #0d0907; border-radius: 4px; display: block; }
+
+    .master-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border-radius: var(--radius);
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--line);
+      background: #1c120d;
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
+    }
+
+    .facts { display: grid; gap: 18px; margin-top: 26px; }
+    .fact { display: grid; grid-template-columns: 18px 1fr; gap: 14px; color: var(--muted); line-height: 1.6; }
+    .fact span { color: var(--gold); }
+
+    .placeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .placeholder {
+      min-height: 120px;
+      border: 1px dashed rgba(246,239,229,.18);
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      color: var(--soft);
+      font-size: 13px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
+    .why-grid .card {
+      min-height: 96px;
+      padding: 18px;
+      justify-content: flex-start;
+      line-height: 1.35;
+      background: rgba(36, 26, 20, .82);
+    }
+    .atmosphere-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 180px;
+      gap: 16px;
+    }
+    .atmosphere-grid div {
+      display: flex;
+      align-items: end;
+      padding: 22px;
+      color: var(--text);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #4a2f18, #17100c);
+      border: 1px solid var(--line-soft);
+    }
+    .atmosphere-grid div:first-child { grid-row: span 2; }
+    .atmosphere-grid div:last-child { grid-column: span 2; }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: .82fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    form {
+      display: grid;
+      gap: 16px;
+      padding: 32px;
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+    }
+    label { color: var(--soft); font-size: 13px; }
+    input, textarea {
+      width: 100%;
+      margin-top: 7px;
+      background: #130d0a;
+      border: 1px solid rgba(246,239,229,.18);
+      color: var(--text);
+      padding: 13px 14px;
+      border-radius: 3px;
+      font: inherit;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .success { display: none; color: #dcb26c; line-height: 1.6; }
+
+    .contacts-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; }
+    .map-placeholder {
+      min-height: 420px;
+      border: 1px dashed rgba(208,154,74,.4);
+      border-radius: var(--radius);
+      text-align: center;
+      color: var(--muted);
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(208,154,74,.08), rgba(255,255,255,.02));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+    }
+    .map-placeholder strong { color: var(--text); font-size: 22px; }
+    .map-placeholder p { max-width: 460px; margin: 0; line-height: 1.7; }
+    .map-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .map-note {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 44px clamp(20px, 5vw, 72px);
+      border-top: 1px solid var(--line-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--soft);
+    }
+
+    @media (max-width: 1020px) {
+      nav { display: none; }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .spa-grid, .two-col, .booking-grid, .contacts-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .placeholder-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero::after { opacity: .1; right: -10%; width: 70vw; }
+    }
+
+    @media (max-width: 640px) {
+      header { align-items: flex-start; }
+      .header-actions a:first-child { display: none; }
+      section { padding: 82px 20px; }
+      .hero { min-height: auto; padding-top: 80px; }
+      .cards, .why-grid, .placeholder-grid, .atmosphere-grid { grid-template-columns: 1fr; }
+      .atmosphere-grid div:first-child, .atmosphere-grid div:last-child { grid-row: auto; grid-column: auto; }
+      .service-row { grid-template-columns: 1fr; gap: 8px; }
+      .form-row { grid-template-columns: 1fr; }
+      .mask-card img { height: 360px; }
+      .certificate img { height: 260px; }
+      .btn { width: 100%; }
+      .section-head { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#hero"><strong>Фестак</strong><span>Африканский массаж и SPA</span></a>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#spa">SPA</a>
+      <a href="#master">Мастер</a>
+      <a href="#certificate">Сертификаты</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+79017546670">+7 901 754-66-70</a>
+      <a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20в%20«Фестак»." target="_blank" rel="noopener">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="chips">
+          <span class="chip">Дмитровское шоссе 81</span>
+          <span class="chip">м. Селигерская</span>
+          <span class="chip">9:00-24:00</span>
+        </div>
+        <h1>Фестак — премиальный африканский массаж и SPA в Москве</h1>
+        <p>Ритуалы глубокого расслабления, тёплые натуральные масла и тишина, которая возвращает тело в свой ритм.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20в%20«Фестак»." target="_blank" rel="noopener">Записаться в WhatsApp</a>
+          <a class="btn" href="#services">Смотреть услуги</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept">
+      <div class="container two-col">
+        <div>
+          <div class="eyebrow">Смысл названия</div>
+          <h2>Не просто массаж — целостная телесная практика</h2>
+          <p>Название «Фестак» отсылает к образу маски королевы Идии, ставшей символом FESTAC 1977 — фестиваля чернокожего искусства и культуры в Лагосе.</p>
+          <p>Мастера из Африки, глубокие телесные техники, натуральные масла, музыка и философия ритуала раскрываются не как декор, а как целостный подход к восстановлению тела.</p>
+          <div class="feature-grid">
+            <div class="feature">Мастера из Африки</div>
+            <div class="feature">Натуральные масла</div>
+            <div class="feature">Ритуал и музыка</div>
+            <div class="feature">Тишина и приватность</div>
+          </div>
+        </div>
+        <figure>
+          <div class="mask-card">
+            <img src="assets/festak-mask.jpg" alt="Маска королевы Идии, символ FESTAC 1977">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="popular">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Начните здесь</div>
+            <h2>Популярные процедуры</h2>
+          </div>
+          <a class="btn" href="#services">Весь каталог услуг</a>
+        </div>
+        <div class="cards">
+          <article class="card"><small>Снять напряжение</small><h3>Классический массаж</h3><div><div class="price">от 4500 ₽ · 60 мин</div><a class="btn" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20классический%20массаж." target="_blank" rel="noopener">Записаться</a></div></article>
+          <article class="card"><small>Поддержать силуэт</small><h3>Антицеллюлитный массаж</h3><div><div class="price">от 5000 ₽ · 60 мин</div><a class="btn" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20антицеллюлитный%20массаж." target="_blank" rel="noopener">Записаться</a></div></article>
+          <article class="card"><small>Снять зажимы</small><h3>Массаж спины</h3><div><div class="price">от 3500 ₽ · 40 мин</div><a class="btn" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20спины." target="_blank" rel="noopener">Записаться</a></div></article>
+          <article class="card"><small>Коррекция фигуры</small><h3>Ручная липосакция</h3><div><div class="price">от 5500 ₽ · 60 мин</div><a class="btn" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20ручной%20липосакции." target="_blank" rel="noopener">Записаться</a></div></article>
+          <article class="card"><small>Восстановить мышцы</small><h3>Спортивный массаж</h3><div><div class="price">от 5000 ₽ · 60 мин</div><a class="btn" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20спортивный%20массаж." target="_blank" rel="noopener">Записаться</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="eyebrow">Каталог услуг</div>
+        <h2>Полное меню процедур</h2>
+        <p>Абонемент на 6 сеансов — скидка 5%. Абонемент на 12 сеансов — скидка 10%.</p>
+        <div class="catalog">
+          <div class="accordion open">
+            <button type="button">Массаж спины и отдельных зон <span>+</span></button>
+            <div class="accordion-content">
+              <div class="service-row"><strong>Массаж шейно-воротниковой зоны</strong><span>30 мин</span><span>3000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Классический массаж спины</strong><span>40/60 мин</span><span>3500/4500 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Спортивный массаж спины</strong><span>40 мин</span><span>4000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Массаж головы / лица / стоп</strong><span>30 мин</span><span>3000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button">Общий массаж тела <span>+</span></button>
+            <div class="accordion-content">
+              <div class="service-row"><strong>Общий классический массаж тела</strong><span>60/90/120 мин</span><span>4500-7500 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Нейроседативный массаж общий</strong><span>60 мин</span><span>4700 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Расслабляющий массаж RELAX</strong><span>60/90 мин</span><span>4500/6000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+            </div>
+          </div>
+          <div class="accordion">
+            <button type="button">Коррекция фигуры и восстановление <span>+</span></button>
+            <div class="accordion-content">
+              <div class="service-row"><strong>Антицеллюлитный общий массаж</strong><span>60/90/120 мин</span><span>5000-8000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Лимфодренажный общий массаж</strong><span>60/90/120 мин</span><span>5000-8000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Массаж ручной липосакции</strong><span>60/90/120 мин</span><span>5500-8500 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+              <div class="service-row"><strong>Медовый / вакуумный / фитнес-массаж</strong><span>60 мин</span><span>5000 ₽</span><a class="btn" href="https://wa.me/79017546670" target="_blank">Записаться</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="spa">
+      <div class="container">
+        <div class="eyebrow">SPA и парные ритуалы</div>
+        <h2>Для восстановления, подарка и медленного вечера вдвоём</h2>
+        <p>SPA-программы, обёртывания, скрабы и ритуалы для двоих.</p>
+        <div class="spa-grid">
+          <article class="card"><small>120 мин</small><h3>Bora-bora</h3><p>Живые водоросли</p><div class="price">7500 ₽</div></article>
+          <article class="card"><small>120 мин</small><h3>Шоколадный рай</h3><p>Тёплый уход и питание кожи</p><div class="price">7200 ₽</div></article>
+          <article class="card"><small>180 мин</small><h3>Я и Ты</h3><p>SPA-ритуал для двоих</p><div class="price">10000 ₽</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificate" class="certificate">
+      <div class="container two-col">
+        <div class="image-card">
+          <img src="assets/festak-certificate.png" alt="Подарочный сертификат Фестак-массаж">
+        </div>
+        <div>
+          <div class="eyebrow">Подарочные сертификаты</div>
+          <h2>Подарочный сертификат «Фестак»</h2>
+          <p>Сертификат можно подарить на конкретный массаж, SPA-ритуал для двоих или на сумму.</p>
+          <a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20заказать%20подарочный%20сертификат%20«Фестак»." target="_blank" rel="noopener">Заказать сертификат в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="master">
+      <div class="container two-col">
+        <img class="master-photo" src="assets/festak-master.jpeg" alt="Ифиджен Брендан, массажист салона Фестак">
+        <div>
+          <div class="eyebrow">Мастер</div>
+          <h2>Ифиджен Брендан</h2>
+          <p class="price">Массажист-универсал, медицинский массаж</p>
+          <div class="facts">
+            <div class="fact"><span>—</span><div>Институт восстановительной медицины, г. Москва</div></div>
+            <div class="fact"><span>—</span><div>Классический, лечебный, спортивный, коррекционный, медовый, баночный, фут-массаж</div></div>
+            <div class="fact"><span>—</span><div>Личный тренер-массажист чемпионки России по теннису, вице-чемпионки Европы Ифиджен Мелиссы</div></div>
+          </div>
+          <p><a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20к%20мастеру%20Ифиджен%20Брендан." target="_blank" rel="noopener">Записаться к мастеру</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="diplomas">
+      <div class="container">
+        <div class="eyebrow">Доверие</div>
+        <h2>Дипломы и сертификаты</h2>
+        <p>Документы и сертификаты мастера будут добавлены в этот раздел.</p>
+        <div class="placeholder-grid">
+          <div class="placeholder">Диплом</div><div class="placeholder">Диплом</div><div class="placeholder">Диплом</div><div class="placeholder">Диплом</div><div class="placeholder">Диплом</div><div class="placeholder">Диплом</div><div class="placeholder">Диплом</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="eyebrow">Почему выбирают</div>
+        <h2>Качество массажа и атмосфера</h2>
+        <div class="why-grid">
+          <div class="card">Мастер из Африки</div>
+          <div class="card">Медицинское образование</div>
+          <div class="card">Персональный подход</div>
+          <div class="card">Натуральные масла</div>
+          <div class="card">Тишина и приватность</div>
+          <div class="card">График 9:00-24:00</div>
+          <div class="card">Рядом с метро Селигерская</div>
+          <div class="card">Запись через WhatsApp</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atmosphere">
+      <div class="container">
+        <div class="eyebrow">Атмосфера и ритуал</div>
+        <h2>Тело выходит из городского напряжения</h2>
+        <div class="atmosphere-grid">
+          <div>Тёплый свет и масла</div>
+          <div>Фактура дерева и ткани</div>
+          <div>Африканское искусство</div>
+          <div>Руки и ритуал</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="eyebrow">Отзывы гостей</div>
+        <h2>Скоро здесь появятся реальные впечатления гостей «Фестак»</h2>
+        <div class="cards">
+          <div class="placeholder">Отзыв появится здесь</div>
+          <div class="placeholder">Отзыв появится здесь</div>
+          <div class="placeholder">Отзыв появится здесь</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container booking-grid">
+        <div>
+          <div class="eyebrow">Запись</div>
+          <h2>Записаться на массаж или SPA</h2>
+          <p>Самый быстрый способ — написать в WhatsApp. Также можно воспользоваться Max, Telegram или оставить заявку через форму.</p>
+          <p><a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20в%20«Фестак»." target="_blank" rel="noopener">Написать в WhatsApp</a></p>
+          <div class="hero-actions">
+            <a class="btn" href="https://max.ru/u/79017546670" target="_blank" rel="noopener">Написать в Max</a>
+            <a class="btn" href="https://t.me/+79017546670" target="_blank" rel="noopener">Написать в Telegram</a>
+          </div>
+          <p class="placeholder">Здесь появится онлайн-календарь для выбора свободного времени.</p>
+        </div>
+        <form id="booking-form">
+          <div class="success" id="form-success">Спасибо, заявка отправлена. Мы свяжемся с вами для подтверждения записи.</div>
+          <label>Имя<input required type="text"></label>
+          <label>Телефон<input required type="tel"></label>
+          <label>Услуга<input type="text" placeholder="Например, классический массаж"></label>
+          <div class="form-row">
+            <label>Дата<input type="date"></label>
+            <label>Время<input type="time"></label>
+          </div>
+          <label>Комментарий<textarea rows="3"></textarea></label>
+          <button class="btn primary" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container contacts-grid">
+        <div>
+          <div class="eyebrow">Контакты</div>
+          <h2>Приходите утром, в обед или вечером</h2>
+          <p><strong>Адрес:</strong><br>Москва, Дмитровское шоссе 81, Гранд Фитнес, Фестак массаж<br>рядом с метро Селигерская</p>
+          <p><strong>График:</strong><br>ежедневно, 9:00-24:00</p>
+          <p><strong>Связь:</strong><br><a href="tel:+79017546670">+7 901 754-66-70</a><br><a href="https://wa.me/79017546670" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://max.ru/u/79017546670" target="_blank" rel="noopener">Max</a> · <a href="https://t.me/+79017546670" target="_blank" rel="noopener">Telegram</a></p>
+        </div>
+        <div class="map-placeholder">
+          <strong>Карта проезда</strong>
+          <p>Москва, Дмитровское шоссе 81, Гранд Фитнес, Фестак массаж. Рядом с метро Селигерская.</p>
+          <div class="map-actions">
+            <a class="btn primary" href="https://yandex.ru/maps/?text=Москва%2C%20Дмитровское%20шоссе%2081%2C%20Гранд%20Фитнес%2C%20Фестак%20массаж" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+            <a class="btn" href="https://yandex.ru/maps/?rtext=~Москва%2C%20Дмитровское%20шоссе%2081%2C%20Гранд%20Фитнес%2C%20Фестак%20массаж&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+          </div>
+          <div class="map-note">Интерактивную карту или скрин проезда добавим сюда позже.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Фестак</strong><br>Премиальный африканский массаж и SPA · Москва</div>
+    <a class="btn primary" href="https://wa.me/79017546670?text=Здравствуйте!%20Хочу%20записаться%20на%20массаж%20в%20«Фестак»." target="_blank" rel="noopener">Записаться в WhatsApp</a>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".accordion button").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest(".accordion").classList.toggle("open");
+      });
+    });
+
+    document.getElementById("booking-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("form-success").style.display = "block";
+      event.currentTarget.querySelectorAll("input, textarea, button").forEach((el) => {
+        if (el.type !== "submit") el.value = "";
+      });
+    });
+  </script>
+</body>
+</html>
