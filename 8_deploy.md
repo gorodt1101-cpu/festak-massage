@@ -46,3 +46,37 @@ https://vercel.com/gorodt1101-3714s-projects/festak-massage/8Cb9rUngHLfE1QNLB82N
 ```text
 C:\Users\User\Documents\Website\test-output\festak-vercel-mobile.png
 ```
+
+## GitHub
+
+Дата: 13.07.2026
+
+`(x)` Проект загружен в GitHub-репозиторий:
+
+```text
+https://github.com/gorodt1101-cpu/festak-massage.git
+```
+
+`(x)` Основная ветка: `main`.
+
+`(x)` Для GitHub Pages создана ветка `gh-pages`.
+
+GitHub Pages URL:
+
+```text
+https://gorodt1101-cpu.github.io/festak-massage/
+```
+
+Проверка после публикации:
+
+1. `(x)` Опубликованный сайт открывается.
+2. `(x)` `title` корректный: «Фестак — премиальный африканский массаж и SPA в Москве».
+3. `(x)` `h1` корректный.
+4. `(x)` Битых изображений не найдено.
+5. `(x)` На мобильной ширине 390 px горизонтального overflow нет.
+
+Скриншот:
+
+```text
+C:\Users\User\Documents\Website\test-output\festak-github-pages-mobile.png
+```
